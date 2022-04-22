@@ -1,7 +1,9 @@
 #pragma once
 #include <vector>
-#include "Card.hpp"
 #include <array>
+#include <memory>
+
+#include "Card.hpp"
 
 namespace
 {
@@ -16,6 +18,6 @@ public:
 
     void shuffleDeck();
 private:
-    std::array<Card, DECKSIZE> cards_;
+    std::array<std::unique_ptr<Card>, DECKSIZE> cards_;
 
 };

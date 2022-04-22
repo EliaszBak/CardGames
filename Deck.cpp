@@ -5,27 +5,28 @@
 
 Deck::Deck()
 {
-    std::vector<Card> temp;
+    std::vector<std::unique_ptr<Card>> temp;
     
     for (int i = 0; i < 4; i++)
 	{
-		temp.push_back(Card(i, 0));
-		temp.push_back(Card(i, 1));
-		temp.push_back(Card(i, 2));
-		temp.push_back(Card(i, 3));
-		temp.push_back(Card(i, 4));
-		temp.push_back(Card(i, 5));
-		temp.push_back(Card(i, 6));
-		temp.push_back(Card(i, 7));
-		temp.push_back(Card(i, 8));
-		temp.push_back(Card(i, 9));
-		temp.push_back(Card(i, 10));
-		temp.push_back(Card(i, 11));
-		temp.push_back(Card(i, 12));
+		temp.push_back(std::make_unique<Card>(i, 0));
+		temp.push_back(std::make_unique<Card>(i, 1));
+		temp.push_back(std::make_unique<Card>(i, 2));
+		temp.push_back(std::make_unique<Card>(i, 3));
+		temp.push_back(std::make_unique<Card>(i, 4));
+		temp.push_back(std::make_unique<Card>(i, 5));
+		temp.push_back(std::make_unique<Card>(i, 6));
+		temp.push_back(std::make_unique<Card>(i, 7));
+		temp.push_back(std::make_unique<Card>(i, 8));
+		temp.push_back(std::make_unique<Card>(i, 9));
+		temp.push_back(std::make_unique<Card>(i, 10));
+		temp.push_back(std::make_unique<Card>(i, 11));
+		temp.push_back(std::make_unique<Card>(i, 12));
 	}
+   
     for (int x = 0; x < cards_.max_size(); x++)
     {
-        cards_[x] = temp[x];
+        cards_[x] = std::move(temp[x]);
 	}
    shuffleDeck();
 }
