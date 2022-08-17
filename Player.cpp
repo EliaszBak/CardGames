@@ -16,3 +16,17 @@ bool Player::isFolded()
     return fold_;
 }
 
+void Player::setCoins(const int amount)
+{
+    coins_ = amount;
+}
+
+void Player::minusCoins(const int amount)
+{
+    coins_ -= amount;
+}
+
+int Player::getCoins()
+{
+    return coins_;
+}

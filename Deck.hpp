@@ -5,6 +5,8 @@
 
 #include "Card.hpp"
 
+using CartPtr = std::unique_ptr<Card>;
+
 namespace
 {
     constexpr std::size_t DECKSIZE = 52;
@@ -17,7 +19,11 @@ public:
     ~Deck() = default;
 
     void shuffleDeck();
+    void printDeck();
+
+    CartPtr getTopCard();
+
 private:
-    std::array<std::unique_ptr<Card>, DECKSIZE> cards_;
+    std::array<CartPtr, DECKSIZE> cards_;
 
 };

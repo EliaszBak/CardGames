@@ -1,6 +1,6 @@
 #include <algorithm>
 #include <random>
-
+#include <iostream>
 #include "Deck.hpp"
 
 Deck::Deck()
@@ -33,7 +33,7 @@ Deck::Deck()
 
 void Deck::shuffleDeck()
 {
-    for (int i = 0; i < 100; i++)
+    for (int i = 0; i < 100; i++)  // randmon position swap
 	{
 		std::random_device rd;
 		std::mt19937 gen(rd()); 
@@ -44,3 +44,16 @@ void Deck::shuffleDeck()
 	}
 }
 
+void Deck::printDeck()
+{
+	for (const auto& card : cards_)
+	{
+		std::cout << card->getColor() << " " << card->getFace() << std::endl;
+	}
+
+}
+
+CartPtr Deck::getTopCard()
+{
+	return std::move(cards_.back());
+}

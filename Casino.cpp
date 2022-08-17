@@ -1,8 +1,16 @@
+#include <iostream>
+
+
 #include "Casino.hpp"
-#include "Deck.hpp"
 
 
-Casino::Casino()
+Casino::Casino() : deck_{std::make_unique<Deck>()}
 {
-    // std::cout << "Witam w mojej kuchni";
+    std::cout << " Casino()" << std::endl;
 }
+
+void Casino::startGame(const int noOfPlayers)
+{
+    
+}
+
